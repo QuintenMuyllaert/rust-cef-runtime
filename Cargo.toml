@@ -1,0 +1,8 @@
+[package]
+name = "rust-cef-runtime"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# cef = { path = "../cef-rs/cef" }
+cef = { git = "https://github.com/tauri-apps/cef-rs" }
