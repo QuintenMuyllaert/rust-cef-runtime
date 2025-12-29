@@ -299,6 +299,30 @@ The runtime will load the built `index.html` using the `app://app/` scheme and s
 
 > **Note**: This example uses a production Vite build (`vite build`), not the Vite dev server. Dev server usage is supported separately via `CEF_START_URL`.
 
+## Production packaging
+
+`rust-cef-runtime` does not impose a packaging format.
+
+In production, the embedding application is responsible for bundling frontend assets and selecting the startup URL.
+
+### Recommended layout
+
+Place your built frontend in an `content/` directory next to the executable:
+
+### Example (`package.rs`)
+
+```rust
+Runtime::run(CefString::from("app://app/content/index.html"));
+```
+
+You can run:
+
+```bash
+cargo build --example package
+```
+
+No environment variables are required in production.
+
 ## 🚧 Current status
 
 **Implemented**
